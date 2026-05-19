@@ -1,0 +1,43 @@
+/* Variables de color para mantener consistencia */
+:root {
+    --primary-color: #6f42c1;
+    --bg-color: #f8f9fa;
+    --sidebar-bg: #1e1e2f;
+    --text-light: #fff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+body { display: flex; height: 100vh; background-color: var(--bg-color); overflow: hidden; }
+
+/* BARRA LATERAL */
+.sidebar {
+    width: 280px;
+    background-color: var(--sidebar-bg);
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+.sidebar-header { padding: 0 20px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px; }
+.sidebar-header h2 { font-size: 1.2rem; font-weight: 800; color: #e2d9f3; }
+
+.nav-btn {
+    background: none; border: none; color: #a0a0b0; padding: 15px 25px;
+    text-align: left; font-size: 1rem; cursor: pointer; transition: all 0.3s;
+    display: flex; align-items: center; gap: 15px;
+}
+.nav-btn:hover, .nav-btn.active { background-color: rgba(255,255,255,0.1); color: var(--text-light); border-left: 4px solid var(--primary-color); }
+
+/* ÁREA DE CONTENIDO */
+.main-content { flex: 1; padding: 40px; overflow-y: auto; }
+.content-section { display: none; max-width: 900px; margin: 0 auto; animation: fadeIn 0.4s; }
+.content-section.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* TIPOGRAFÍA DE LA GUÍA */
+h1 { color: var(--primary-color); margin-bottom: 10px; font-weight: 800; font-size: 2.5rem; }
+h3 { color: #2c3e50; margin: 30px 0 15px; font-size: 1.5rem; border-bottom: 2px solid #e9ecef; padding-bottom: 5px; }
+p { color: #555; line-height: 1.6; margin-bottom: 15px; font-size: 1.05rem; }
+ul { margin-bottom: 20px; padding-left: 20px; color: #555; line-height: 1.6;}

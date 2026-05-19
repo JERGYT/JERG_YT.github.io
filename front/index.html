@@ -1,0 +1,1088 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plataforma Interactiva - ASP.NET Core MVC</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/games.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2><i class="fas fa-laptop-code"></i> DevAcademy</h2>
+        <small style="color: #a0a0b0">Curso MVC .NET 8</small>
+      </div>
+      <button class="nav-btn active" onclick="showSection('fase1')">
+        <i class="fas fa-book"></i> Fase 1: Arquitectura
+      </button>
+      <button class="nav-btn" onclick="showSection('fase2')">
+        <i class="fas fa-database"></i> Fase 2: Base de Datos
+      </button>
+      <button class="nav-btn" onclick="showSection('fase3')">
+        <i class="fas fa-brain"></i> Fase 3: Controladores
+      </button>
+      <button class="nav-btn" onclick="showSection('fase4')">
+        <i class="fas fa-desktop"></i> Fase 4: Las Vistas
+      </button>
+      <button class="nav-btn" onclick="showSection('fase5')">
+        <i class="fas fa-file-excel"></i> Fase 5: Reportes Excel
+      </button>
+      <button class="nav-btn" onclick="showSection('fase6')">
+        <i class="fas fa-layer-group"></i> Fase 6: El Layout
+      </button>
+      <button class="nav-btn" onclick="showSection('fase7')">
+        <i class="fas fa-edit"></i> Fase 7: Edición (CRUD)
+      </button>
+      <button class="nav-btn" onclick="showSection('fase8')">
+        <i class="fas fa-star"></i> Fase 8: Projecto Practico
+      </button>
+    </aside>
+
+    <main class="main-content">
+      <section id="fase1" class="content-section active">
+        <h1>Fase 1: Introducción y Modelado</h1>
+        <p>
+          Bienvenidos a su primera gran inmersión en el desarrollo web
+          profesional. Dominar esta arquitectura les abrirá las puertas al mundo
+          laboral real.
+        </p>
+        <div class="container mt-4" id="fase1-content">
+          <div class="card shadow-sm border-0">
+            <div class="card-header bg-primary text-white">
+              <h2 class="mb-0">
+                Fase 1: Introducción, Arquitectura y Modelado de Datos
+              </h2>
+            </div>
+            <class="card-body p-4">
+
+            <h3 class="text-primary border-bottom pb-2">
+              1. La Analogía del Restaurante: ¿Qué es MVC?
+            </h3>
+            <p>
+              Antes de tocar una sola línea de código, necesitan entender cómo
+              funciona la arquitectura MVC (Modelo-Vista-Controlador). Imaginen
+              que el sistema de software que vamos a programar es un Restaurante
+              de Alta Cocina:
+            </p>
+
+            [Image of MVC (Model-View-Controller) architecture diagram]
+
+            <ul class="list-group list-group-flush mb-4 mt-3">
+              <li class="list-group-item">
+                <strong>La Vista (View):</strong> Es el Comedor y el Menú. Es
+                todo lo que el cliente (usuario) puede ver, tocar e interactuar
+                (botones, tablas, colores). La Vista no sabe cómo cocinar, solo
+                sabe verse presentable y mostrar las opciones. En nuestro
+                código, serán los archivos HTML.
+              </li>
+              <li class="list-group-item">
+                <strong>El Controlador (Controller):</strong> Es el Mesero. El
+                cliente no entra a la cocina a prepararse su comida. El cliente
+                llama al mesero (Controlador), le hace un pedido (ej. "Quiero
+                ver mis reservas"), el mesero va a la cocina, pide la
+                información, y luego se la sirve de vuelta al cliente en su
+                mesa. Es el coordinador o intermediario perfecto.
+              </li>
+              <li class="list-group-item">
+                <strong>El Modelo (Model):</strong> Es la Cocina, los
+                Ingredientes y las Recetas. Aquí es donde están los datos
+                reales, las reglas matemáticas del negocio y la conexión con la
+                despensa (la base de datos). El Modelo sabe exactamente qué
+                datos conforman a un "Funcionario" o una "Reserva".
+              </li>
+            </ul>
+
+            <h3 class="text-primary border-bottom pb-2">
+              2. Entendiendo la Estructura de Carpetas
+            </h3>
+            <p>
+              El patrón MVC divide nuestro proyecto en un esqueleto de carpetas
+              perfectamente organizado. Las piezas más importantes, basadas en
+              nuestra analogía, son:
+            </p>
+            <ul class="mb-4">
+              <li>
+                <strong>📂 Models:</strong> Tu cocina. Aquí crearemos archivos
+                <code>.cs</code> (Clases de C#) que representarán las
+                "plantillas" de nuestros datos (ej. cómo está compuesta una
+                Reserva).
+              </li>
+              <li>
+                <strong>📂 Views:</strong> Tu comedor. Aquí vivirán archivos
+                <code>.cshtml</code> (una mezcla genial de HTML y C#) que serán
+                las pantallas visuales de tu sistema web.
+              </li>
+              <li>
+                <strong>📂 Controllers:</strong> Tus meseros. Aquí guardaremos
+                archivos <code>.cs</code> que recibirán los clics del usuario y
+                decidirán qué pantalla mostrar o qué datos calcular.
+              </li>
+              <li>
+                <strong>📂 wwwroot:</strong> La decoración. Ahí es donde
+                guardaremos los archivos estáticos como imágenes, estilos CSS
+                (colores, tamaños) y scripts de JavaScript.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="game-container">
+          <h3><i class="fas fa-gamepad"></i> Reto Interactivo</h3>
+          <p>
+            Arrastra los conceptos técnicos hacia la función que cumplen en la
+            analogía del restaurante.
+          </p>
+
+          <div class="game-area">
+            <div class="draggables-zone">
+              <div class="draggable-item" draggable="true" data-id="vista">
+                La Vista (View)
+              </div>
+              <div
+                class="draggable-item"
+                draggable="true"
+                data-id="controlador"
+              >
+                El Controlador (Controller)
+              </div>
+              <div class="draggable-item" draggable="true" data-id="modelo">
+                El Modelo (Model)
+              </div>
+            </div>
+            <div class="drop-zone-container">
+              <div class="drop-zone" data-target="controlador">
+                El Mesero (Coordina peticiones)
+              </div>
+              <div class="drop-zone" data-target="vista">
+                El Comedor (Interfaz gráfica)
+              </div>
+              <div class="drop-zone" data-target="modelo">
+                La Cocina (Datos y reglas)
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="fase2" class="content-section">
+        <h1>Fase 2: Entity Framework, Contexto de Datos y Migraciones</h1>
+        <p>
+          En lugar de escribir código SQL manualmente para crear tablas,
+          utilizamos un ORM llamado Entity Framework Core. Este sistema lee
+          nuestras clases de C# y genera un guion (script) para construir la
+          base de datos mediante comandos.
+        </p>
+        <div class="container mt-4" id="fase2-content">
+    <div class="card shadow-sm border-0">
+            
+            <h3 class="text-success border-bottom pb-2">1. Entity Framework Core: El Traductor Universal</h3>
+            <p>En el pasado, los programadores tenían que escribir largas y complejas consultas en lenguaje SQL puro para guardar o 
+                leer datos (ej. <code>SELECT * FROM Funcionarios WHERE...</code>). Hoy, utilizamos una tecnología llamada <strong>ORM 
+                (Object-Relational Mapper)</strong>.
+            </p>
+
+            <p>En .NET, nuestro ORM se llama <strong>Entity Framework Core</strong>. Funciona como un traductor bilingüe perfecto: 
+                tú le hablas en C# (usando modelos que se explicaron en la Fase 1) y él se encarga de traducirlo automáticamente a comandos 
+                de SQL Server por detrás. Esto nos ahorra horas de trabajo y previene muchísimos errores de seguridad.
+                <h4 class="text-success mt-4 mb-3">Instalación de Paquetes (La "App Store" de .NET)</h4>
+
+                <div class="alert alert-info shadow-sm mb-4">
+                    <strong>💡 ¿Qué es NuGet?</strong> Piensa en NuGet como la App Store o Play Store oficial para los proyectos de Visual Studio. Es la biblioteca donde descargamos las herramientas de terceros o de Microsoft que nuestro código necesita.
+                    Para usar este "traductor" (Entity Framework Core) y conectarnos a SQL Server, debemos descargar las librerías necesarias. Sigue este paso a paso detallado:
+                </div>
+
+                <div class="card bg-light border-0 mb-4">
+                    <div class="card-body">
+                        <p class="mb-0">
+                            <li class="mb-2">En el menú superior de Visual Studio, ve a <strong>Herramientas</strong>.</li>
+                            <li class="mb-2">Selecciona <strong>Administrador de paquetes NuGet</strong> &gt; <strong>Administrar paquetes NuGet para la solución...</strong></li>
+                            <li class="mb-2">Ve a la pestaña <strong>Examinar</strong> (Browse).</li>
+                            <li class="mb-2">En el buscador, escribe exactamente y selecciona este paquete:
+                                <code>Microsoft.EntityFrameworkCore.SqlServer</code>
+                            </li>
+                            <li class="mb-2">A la derecha, marca la casilla de tu proyecto (<strong>HotelAdmin</strong>), elige la versión (la correspondiente a tu .NET) y haz clic en 
+                                <strong>Instalar</strong>. <em>(Acepta cualquier ventana de términos y licencias que aparezca)</em>.</li>
+                            <li class="mt-4 mb-2 border-top pt-3"><strong>Repite el proceso</strong> (busca e instala) para este segundo paquete, 
+                                el cual es vital para usar la consola:
+                                <code>Microsoft.EntityFrameworkCore.Tools</code>
+                            </li>
+                        </p>
+                    </div>
+                </div>
+            </p>
+
+            <h3 class="text-success border-bottom pb-2 mt-4">2. El ApplicationDbContext: El Puente Principal</h3>
+            <p>Si nuestros Modelos (<code>Funcionario.cs</code> y <code>Reserva.cs</code>) son los ingredientes, el 
+                <strong>ApplicationDbContext</strong> es el puente de la autopista que conecta nuestra aplicación web 
+                con el servidor de la base de datos.</p>
+            <p>Este archivo le dice al sistema exactamente cuáles de nuestras clases deben convertirse en tablas reales en SQL Server. 
+                Como nuestro sistema también maneja inicio de sesión de usuarios, este archivo es un poco especial y hereda de 
+                <code>IdentityDbContext</code>.</p>
+            
+
+            <h3 class="text-success border-bottom pb-2 mt-4">3. Migraciones: Construyendo la Base de Datos</h3>
+            <p>Tener el puente (<code>ApplicationDbContext</code>) y los planos (<code>Modelos</code>) no es suficiente. Tenemos que enviar a los obreros a construir las tablas reales en SQL Server. A este proceso se le llama <strong>Migraciones</strong>.</p>
+            
+            <p>Una migración es como tomarle una "fotografía" al estado actual de tu código C# y decirle a la base de datos que se actualice para verse exactamente igual a esa foto. Esto se hace en dos pasos a través de la consola:</p>
+            
+            <ul class="list-group mb-4">
+                <li class="list-group-item">
+                    <h5 class="mb-1 text-primary">Paso 1: Crear los planos de construcción</h5>
+                    <p class="mb-1">El comando <code>Add-Migration NombreDeLaMigracion</code> (o <code>dotnet ef migrations add</code>) revisa qué cambió en tus modelos y genera un archivo con las instrucciones para la base de datos.</p>
+                </li>
+                <li class="list-group-item">
+                    <h5 class="mb-1 text-primary">Paso 2: Ejecutar la construcción</h5>
+                    <p class="mb-1">El comando <code>Update-Database</code> (o <code>dotnet ef database update</code>) toma esos planos y viaja hasta SQL Server para crear, borrar o modificar las tablas, columnas y relaciones físicamente.</p>
+                </li>
+            </ul>
+
+            <div class="alert alert-warning">
+                <strong>💡 Tip de Ingeniero:</strong> Si alguna vez agregas una nueva propiedad a tu modelo (por ejemplo, el <code>Email</code> de un funcionario) y olvidas correr estos dos comandos, el programa fallará porque el código buscará una columna en la base de datos que aún no existe. ¡Las migraciones mantienen todo sincronizado!
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="game-container">
+          <h3>
+            <i class="fas fa-terminal"></i> Simulador de Migraciones
+          </h3>
+          <p>
+            Para abrir la Consola del Administrador de Paquetes y ejecuta los comandos
+            necesarios para crear la base de datos toca en el menú superior, 
+            ve a Herramientas > Administrador de paquetes NuGet > Consola del Administrador de paquetes
+          </p>
+          <ol>
+            <li>
+              Paso 1: Crea el guion de la base de datos escribiendo el comando
+              <strong>Add-Migration Inicial</strong>
+            </li>
+            <li>
+              Paso 2: Aplica ese guion a SQL Server escribiendo el comando
+              <strong>Update-Database</strong>
+            </li>
+          </ol>
+
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <span class="btn-close-term"></span>
+              <span class="btn-min-term"></span>
+              <span class="btn-max-term"></span>
+              <span class="term-title"
+                >Consola del Administrador de Paquetes</span
+              >
+            </div>
+            <div class="terminal-body" id="terminal-output">
+              <div>PM> Listo para recibir comandos...</div>
+            </div>
+            <div class="terminal-input-line">
+              <span class="prompt">PM> </span>
+              <input
+                type="text"
+                id="terminal-input"
+                autocomplete="off"
+                spellcheck="false"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="fase3" class="content-section">
+        <h1>Fase 3: Controladores (El Cerebro)</h1>
+        <p>
+          El Controlador es el Mesero de nuestro restaurante. Recibe las
+          peticiones del usuario (clics), procesa la información (hace cálculos
+          matemáticos, valida reglas de negocio) y decide qué guardar en la base
+          de datos.
+        </p>
+        <div class="container mt-4" id="fase3-content">
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-4">
+            
+            <h3 class="text-warning border-bottom border-warning pb-2">1. El Mesero en Acción</h3>
+            <p>Volviendo a nuestra analogía del restaurante, el Controlador es el Mesero. Su trabajo es fundamental y se divide en tres pasos exactos cada vez que un cliente hace clic en la página web:</p>
+            <ol class="mb-4">
+                <li><strong>Escucha la petición:</strong> El usuario escribe una URL o hace clic en un botón (ej. "Guardar Reserva").</li>
+                <li><strong>Procesa los datos:</strong> El controlador va a la base de datos (nuestra cocina) usando el <code>ApplicationDbContext</code> para guardar o buscar la información necesaria.</li>
+                <li><strong>Sirve el resultado:</strong> Le entrega los datos listos a una Vista (el comedor) para que el usuario los vea en su pantalla.</li>
+            </ol>
+
+            <h3 class="text-warning border-bottom border-warning pb-2 mt-4">2. El Lenguaje de la Web: GET vs POST</h3>
+            <p>Para que el Mesero no se confunda, en el desarrollo web usamos dos "etiquetas" principales llamadas Verbos HTTP. Es crucial entender la diferencia antes de programar:</p>
+            <ul class="list-group mb-4">
+                <li class="list-group-item">
+                    <span>[HttpGet]</span> 
+                    <strong>"Tráeme información":</strong> Se usa cuando el usuario solo quiere VER algo. Por ejemplo, entrar a la página para ver la lista de empleados o abrir un formulario en blanco. Es como pedirle la carta al mesero.
+                </li>
+                <li class="list-group-item">
+                    <span>[HttpPost]</span> 
+                    <strong>"Toma esta información":</strong> Se usa cuando el usuario LLENÓ un formulario y hace clic en "Guardar". Los datos viajan ocultos y seguros hacia el servidor. Es como entregarle la orden escrita al mesero para que la lleve a la cocina.
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="game-container">
+          <h3 style="margin-top: 0; color: var(--primary-color)">
+            <i class="fas fa-question-circle"></i> Quiz: Lógica y Seguridad
+          </h3>
+          <p>
+            Pon a prueba tus conocimientos sobre cómo debe actuar el Controlador
+            para proteger el sistema.
+          </p>
+
+          <div class="quiz-card" id="q1">
+            <p class="quiz-question">
+              1. En el Controlador, calculamos que el huésped se quedará -2 días
+              (porque metió mal las fechas). ¿Qué debe hacer el sistema?
+            </p>
+            <div class="quiz-options">
+              <button class="quiz-btn" data-correct="false">
+                Multiplicar la tarifa por -2 y devolverle dinero.
+              </button>
+              <button class="quiz-btn" data-correct="true">
+                Forzar la variable a 1 día para cobrar como mínimo una noche.
+              </button>
+              <button class="quiz-btn" data-correct="false">
+                Cerrar el programa por completo.
+              </button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-card mt-4" id="q2">
+            <p class="quiz-question">
+              2. ¿Por qué calculamos el Precio Total en C# (Controlador) y NO en
+              el HTML de la pantalla?
+            </p>
+            <div class="quiz-options">
+              <button class="quiz-btn" data-correct="false">
+                Porque el HTML no sabe hacer multiplicaciones.
+              </button>
+              <button class="quiz-btn" data-correct="false">
+                Para que la página cargue más rápido.
+              </button>
+              <button class="quiz-btn" data-correct="true">
+                Por seguridad: Un usuario tramposo podría alterar el HTML y
+                enviarnos un precio de $0.
+              </button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+      <section id="fase4" class="content-section">
+        <h1>Fase 4: Las Vistas y la Magia de Razor</h1>
+        <p>
+          El HTML por sí solo es como un póster impreso: no sabe hacer
+          matemáticas ni consultar bases de datos. Para inyectarle vida, usamos
+          <strong>Razor</strong>. Razor nos permite usar el símbolo
+          <code>@</code> para escribir código C# directamente dentro del HTML.
+        </p>
+        <div class="container mt-4" id="fase4-content">
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-4">
+            
+            <h3 class="text-info border-bottom border-info pb-2">1. La Vista: El Comedor del Restaurante</h3>
+            <p>Siguiendo nuestra analogía, la Vista es el comedor limpio, decorado y la carta física que se le entrega al cliente. Es la capa visual con la que interactúan las personas. Un usuario común no entiende de bases de datos relacionales ni de inyección de dependencias en C#; él solo ve botones, formularios, tablas y colores.</p>
+            <p>En ASP.NET Core MVC, las vistas no son simples archivos HTML estáticos independientes. Son archivos con la extensión <code>.cshtml</code>. Esto significa que combinan el poder estructural de <strong>HTML5</strong> con la potencia lógica de <strong>C#</strong>.</p>
+
+            <h3 class="text-info border-bottom border-info pb-2 mt-4">2. El Motor de Renderizado Razor</h3>
+            <p>Para lograr que HTML y C# convivan en un mismo archivo de forma fluida, Microsoft creó un motor de plantillas llamado <strong>Razor</strong>. Su funcionamiento es sumamente elegante: cada vez que el motor encuentra el símbolo de la arroba (<code>@</code>), sabe que lo que viene a continuación no es texto plano para el navegador, sino una instrucción lógica en C# que debe ejecutarse en el servidor antes de enviar la pantalla.</p>
+            
+            
+
+            <p class="mt-3">Las directivas fundamentales de Razor que todo ingeniero debe dominar son:</p>
+            <ul class="list-group mb-4">
+                <li class="list-group-item">
+                    <code>@model</code> (en minúscula): Define con qué tipo de "ingrediente" o molde de datos va a trabajar esta pantalla específica.
+                </li>
+                <li class="list-group-item">
+                    <code>@foreach</code> o <code>@if</code>: Permiten crear bucles dinámicos y condiciones lógicas directamente dentro del diseño visual.
+                </li>
+                <li class="list-group-item">
+                    <code>Model</code> (en mayúscula): Es la variable real que contiene la información que el controlador le envió a la mesa.
+                </li>
+            </ul>
+
+            <h3 class="text-info border-bottom border-info pb-2 mt-4">3. Diseñando la Vista de Listado (Index.cshtml)</h3>
+            <p>Cuando el método <code>Index()</code> de nuestro controlador va a la base de datos y trae la lista de empleados, la envía a esta pantalla. Aquí usamos un ciclo para dibujar una fila de tabla por cada funcionario registrado automáticamente.</p>
+            
+           
+            <h3 class="text-info border-bottom border-info pb-2 mt-4">4. Formularios Inteligentes y Tag Helpers</h3>
+            <p>Para construir el formulario de creación (<code>Create.cshtml</code>), Razor utiliza una característica avanzada llamada <strong>Tag Helpers</strong> (reconocibles porque empiezan con <code>asp-</code>). Estos atributos conectan las cajas de texto directamente con las variables de nuestro modelo, facilitando que el navegador capture la información de forma estructurada.</p>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="game-container">
+          <h3 style="margin-top: 0; color: var(--primary-color)">
+            <i class="fas fa-code"></i> Constructor de Código
+          </h3>
+          <p>
+            El siguiente código construye la pantalla de reservas. Selecciona en
+            los espacios en blanco las instrucciones correctas de Razor y
+            ASP.NET para que compile sin errores.
+          </p>
+          
+
+          <div class="code-builder-area">
+            <pre><code>
+                        &lt;!-- 1. Formulario para enviar una nueva reserva --&gt;
+                        &lt;form <select id="code-1" class="code-select">
+                            <option value="">[Selecciona el atributo]</option>
+                            <option value="wrong">href="Create"</option>
+                            <option value="correct">asp-action="Create"</option>
+                        </select> method="post"&gt;
+                            &lt;label&gt;Nombre del Huésped&lt;/label&gt;
+                            &lt;!-- El nombre del input DEBE ser igual a la propiedad en C# --&gt;
+                            &lt;input type="text" <select id="code-2" class="code-select">
+                                <option value="">[Selecciona el nombre]</option>
+                                <option value="correct">name="NombreHuesped"</option>
+                                <option value="wrong">id="nombre_cliente"</option>
+                            </select> required /&gt;
+                            
+                            &lt;button type="submit"&gt;Guardar Reserva&lt;/button&gt;
+                        &lt;/form&gt;
+
+                        &lt;!-- 2. Tabla HTML para mostrar todas las reservas --&gt;
+                        &lt;table&gt;
+                            &lt;tbody&gt;
+                                <select id="code-3" class="code-select">
+                                    <option value="">[Bucle para imprimir filas]</option>
+                                    <option value="correct">@foreach (var item in Model)</option>
+                                    <option value="wrong">for(i=0; i&lt;10; i++)</option>
+                                </select>
+                                {
+                                    &lt;tr&gt;
+                                        &lt;!-- Imprimimos la variable C# en la celda HTML --&gt;
+                                        &lt;td&gt;<select id="code-4" class="code-select">
+                                            <option value="">[Imprimir variable]</option>
+                                            <option value="correct">@item.NombreHuesped</option>
+                                            <option value="wrong">item.NombreHuesped</option>
+                                        </select>&lt;/td&gt;
+                                    &lt;/tr&gt;
+                                }
+                            &lt;/tbody&gt;
+                        &lt;/table&gt;
+                    </code></pre>
+            <button id="btn-validate-code" class="btn-primary mt-3">
+              <i class="fas fa-play"></i> Compilar Vista
+            </button>
+            <div id="builder-feedback" class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+      <section id="fase5" class="content-section">
+        <h1>Fase 5: Reportes y Exportación a Excel</h1>
+        <p>
+          En el mundo real, los gerentes siempre pedirán reportes descargables.
+          En .NET utilizamos una librería llamada
+          <strong>ClosedXML</strong> para generar archivos Excel sin necesidad
+          de tener Microsoft Office instalado en el servidor.
+        </p>
+        <div class="container mt-4" id="fase5-content">
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-4">
+            
+            <h3 class="text-dark border-bottom pb-2">1. La Petición de la Gerencia</h3>
+            <p>¡Bienvenidos a la recta final! Hemos construido la cocina (Modelos), la despensa (Base de Datos), entrenado a los meseros (Controladores) y decorado el comedor (Vistas). Nuestro sistema ya permite ingresar, calcular y consultar datos de manera segura y automática.</p>
+            <p>Sin embargo, en el mundo real, a los gerentes y administradores no siempre les basta con ver los datos en una pantalla web; su petición más común será: <strong>"Envíame ese reporte en Excel"</strong>. Hoy aprenderemos a tomar la información viva de nuestra base de datos y convertirla, mediante código, en un archivo Excel (.xlsx) descargable, estructurado y con formato profesional.</p>
+
+            <h3 class="text-dark border-bottom pb-2 mt-4">2. Instalando la herramienta correcta: ClosedXML</h3>
+            <p>En el pasado, para que C# creara un documento de Excel, necesitabas tener instalado Microsoft Office en el servidor, lo cual era ineficiente y costoso. Hoy en día usamos librerías que generan el archivo internamente manipulando el estándar OpenXML. La mejor y más amigable para este trabajo se llama <strong>ClosedXML</strong>.</p>
+            
+            <div class="card bg-light border-0 mb-4">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Paso a paso para instalarla:</h5>
+                    <ol class="mb-0">
+                        <li class="mb-2">En el menú superior de Visual Studio, ve a <strong>Herramientas</strong> &gt; <strong>Administrador de paquetes NuGet</strong> &gt; <strong>Administrar paquetes NuGet para la solución...</strong></li>
+                        <li class="mb-2">Ve a la pestaña <strong>Examinar</strong> (Browser).</li>
+                        <li class="mb-2">En la barra de búsqueda, escribe exactamente: <code>ClosedXML</code>.</li>
+                        <li class="mb-2">Selecciona el paquete cuyo autor es "ClosedXML", marca la casilla de tu proyecto (HotelAdmin) en el panel derecho y haz clic en <strong>Instalar</strong>.</li>
+                        <li class="mb-2">Si aparece un cuadro de diálogo pidiendo aceptar licencias o dependencias, haz clic en Aceptar.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="alert alert-warning shadow-sm border-start border-warning border-4">
+                <strong>[ESPACIO PARA CAPTURA]</strong><br>
+                Estudiante: Toma una captura de la pantalla del Administrador de Paquetes NuGet donde se vea el paquete ClosedXML con el check verde indicando que ya está "Instalado".
+            </div>
+
+           
+            <h3 class="text-dark border-bottom pb-2 mt-4">3. Explicación del "Bucle Mágico" para llenar el Excel</h3>
+            <p>Si recuerdan los ciclos <code>for</code> o <code>while</code> de sus primeras clases de fundamentos de programación, sabrán que sirven para repetir instrucciones rápidamente. Aquí usamos un ciclo <code>foreach</code> para recorrer la lista de reservas que sacamos de la base de datos e imprimirlas en el Excel.</p>
+            <p>Imaginen una hoja de Excel como un plano cartesiano. Las coordenadas se leen como <code>worksheet.Cell(Fila, Columna)</code>.</p>
+            
+            <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item"><strong>La variable de control:</strong> Antes de entrar al ciclo, creamos una variable <code>int currentRow = 2;</code> (Fila Actual). ¿Por qué empezamos en 2? Porque la fila 1 ya la ocupamos pintando los títulos (ID, Huésped, etc.).</li>
+                <li class="list-group-item"><strong>La primera iteración:</strong> El <code>foreach</code> toma la primera reserva de nuestra lista de la base de datos. Usando la variable <code>currentRow</code> (que vale 2), empieza a escribir en la fila 2, columna 1 (<code>r.Id</code>), luego en la columna 2 (<code>r.NombreHuesped</code>), y así hasta la columna 8.</li>
+                <li class="list-group-item"><strong>El incremento:</strong> Justo al final de las instrucciones de esa reserva, vemos la línea <code>currentRow++;</code>. Esto en C# significa "Súmale 1 al valor actual". Ahora <code>currentRow</code> vale 3.</li>
+                <li class="list-group-item"><strong>La segunda iteración:</strong> El <code>foreach</code> toma la segunda reserva de la lista. Vuelve a ejecutar las mismas líneas de código, pero ahora, como la variable <code>currentRow</code> vale 3, escribirá todos los datos un renglón más abajo (en la Fila 3), evitando sobrescribir los datos de la primera reserva.</li>
+                <li class="list-group-item"><strong>El final:</strong> Este proceso se repite en bucle tantas veces como reservas haya. Si hay 100 reservas, el código iterará y escribirá hasta la fila 101 de forma automática en apenas unos milisegundos.</li>
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="game-container">
+          <h3 style="margin-top: 0; color: #107c41">
+            <i class="fas fa-table"></i> Simulador de Exportación
+          </h3>
+          <p>
+            Presiona el botón para simular la ejecución de cada iteración del
+            bucle <code>foreach</code> en el servidor y mira cómo se construye
+            el Excel.
+          </p>
+
+          <div
+            class="code-block"
+            style="
+              background-color: #1e1e1e;
+              padding: 15px;
+              border-radius: 6px;
+              margin-bottom: 20px;
+            "
+          >
+            <code style="color: #d4d4d4">
+              <span style="color: #569cd6">int</span> currentRow =
+              <span style="color: #b5cea8">2</span>;<br />
+              <span style="color: #c586c0">foreach</span> (<span
+                style="color: #569cd6"
+                >var</span
+              >
+              r <span style="color: #c586c0">in</span> reservas) {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;worksheet.Cell(currentRow,
+              <span style="color: #b5cea8">1</span>).Value = r.Id;<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;worksheet.Cell(currentRow,
+              <span style="color: #b5cea8">2</span>).Value = r.Nombre;<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;<span
+                id="code-highlight"
+                style="color: #4ec9b0; font-weight: bold"
+                >currentRow++;</span
+              >
+              <span style="color: #6a9955">// Bajar de renglón</span><br />
+              }
+            </code>
+          </div>
+
+          <button id="btn-loop" class="btn-excel">
+            <i class="fas fa-step-forward"></i> Ejecutar siguiente iteración
+          </button>
+          <span
+            id="excel-status"
+            style="margin-left: 15px; font-weight: bold; color: #555"
+            >Esperando ejecución...</span
+          >
+
+          <div class="excel-window mt-4">
+            <div class="excel-toolbar">
+              <i class="fas fa-file-excel"></i> Reporte_Reservas.xlsx
+            </div>
+            <table class="excel-grid" id="excel-table">
+              <thead>
+                <tr>
+                  <th style="width: 40px"></th>
+                  <th>A</th>
+                  <th>B</th>
+                  <th>C</th>
+                </tr>
+              </thead>
+              <tbody id="excel-body">
+                <tr class="excel-header-row">
+                  <td class="row-num">1</td>
+                  <td>ID Reserva</td>
+                  <td>Huésped</td>
+                  <td>Total Pagado</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <section id="fase6" class="content-section">
+        <h1>Fase 6: La Página Maestra (_Layout)</h1>
+        <div class="container mt-4" id="fase6-content">
+    <div class="card shadow-sm border-0">
+            
+            <h3 class="text-dark border-bottom pb-2">1. El Concepto de Navegación</h3>
+            <p>
+                En el desarrollo web, no escribimos el menú de navegación y el pie de
+                página en todas las pantallas. Si tuviéramos 50 pantallas y
+                quisiéramos cambiar un enlace del menú, ¡tendríamos que editar 50
+                archivos!
+            </p>
+            <p>
+                ASP.NET Core resuelve esto con un archivo maestro llamado
+                <strong>_Layout.cshtml</strong>. Este archivo usa el comando
+                <code>@RenderBody()</code> para definir el lugar exacto donde se
+                inyectarán las demás vistas.
+            </p>
+            
+        <div class="game-container">
+          <h3 style="margin-top: 0; color: var(--primary-color)">
+            <i class="fas fa-puzzle-piece"></i> Simulador de Renderizado
+          </h3>
+          <p>
+            Presiona los botones para pedirle al Controlador diferentes
+            pantallas y observa cómo se inyectan en el
+            <code>@RenderBody()</code> sin recargar el menú ni el pie de página.
+          </p>
+
+          <div class="layout-simulator-area">
+            <div class="layout-controls mb-4">
+              <button class="btn-layout" data-view="reservas">
+                <i class="fas fa-calendar-check"></i> Pedir Vista de Reservas
+              </button>
+              <button class="btn-layout" data-view="funcionarios">
+                <i class="fas fa-users"></i> Pedir Vista de Funcionarios
+              </button>
+              <button class="btn-layout btn-danger" data-view="limpiar">
+                <i class="fas fa-eraser"></i> Limpiar RenderBody
+              </button>
+            </div>
+
+            <div class="browser-mockup">
+              <div class="browser-header">
+                <span class="dot red"></span><span class="dot yellow"></span
+                ><span class="dot green"></span>
+                <div class="browser-url">localhost:5000/HotelAdmin</div>
+              </div>
+
+              <div class="mockup-content">
+                <header class="mockup-nav">
+                  <div class="logo">🏨 HotelAdmin</div>
+                  <div class="links">
+                    <span>Menú</span> <span>Perfil</span> <span>Salir</span>
+                  </div>
+                </header>
+
+                <div class="mockup-body">
+                  <div class="render-body-label">Zona del @RenderBody()</div>
+                  <div id="render-target" class="render-target-empty">
+                    <span class="pulse-text"
+                      >Esperando inyección de Vista...</span
+                    >
+                  </div>
+                </div>
+
+                <footer class="mockup-footer">
+                  &copy; 2026 - Sistema de Reservas
+                </footer>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="fase7" class="content-section">
+        <h1>Fase 7: Actualización de Datos (Edición)</h1>
+        <p>
+          En cualquier sistema corporativo, los usuarios cometen errores y
+          necesitan modificar registros. Aquí completamos la "U" del acrónimo
+          CRUD (Update). Para editar, el Controlador usa un trabajo en equipo de
+          dos métodos:
+        </p>
+        <ul>
+          <li>
+            <strong>GET (Buscar y Mostrar):</strong> Va a la Base de Datos,
+            busca la reserva y llena el formulario.
+          </li>
+          <li>
+            <strong>POST (Recibir y Actualizar):</strong> Recibe el formulario
+            modificado y sobrescribe la Base de Datos.
+          </li>
+        </ul>
+        <div class="container mt-4" id="fase7-content">
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-4">
+            
+            <h3 class="text-danger border-bottom pb-2">1. El Desafío de las Llaves Foráneas (Relaciones 1 a Muchos)</h3>
+            <p>En la base de datos, una reserva no puede flotar sola en el espacio; por reglas del negocio, obligatoriamente debe estar asociada al funcionario que realizó la venta (Llave Foránea: <code>FuncionarioId</code>). Cuando un usuario va a registrar una reserva, no podemos pedirle que escriba el número de ID numérico del empleado de memoria, ya que eso causaría errores fatales si digita un número que no existe.</p>
+            
+            <p>La solución elegante en la ingeniería de software es implementar un <strong>Menú Desplegable Dinámico (Select)</strong>. El controlador irá a la tabla de Funcionarios, extraerá los nombres completos y sus IDs, y los empaquetará en una lista de selección que viajará a la Vista.</p>
+
+            
+        </div>
+    </div>
+</div>
+
+        <div class="game-container">
+          <h3 style="margin-top: 0; color: var(--primary-color)">
+            <i class="fas fa-exchange-alt"></i> Simulador de Flujo de Edición
+          </h3>
+          <p>
+            Sigue el orden lógico de los botones para ver cómo viajan los datos
+            entre la Vista (Pantalla) y el Modelo (Base de Datos).
+          </p>
+
+          <div class="crud-flow-area">
+            <div class="database-box">
+              <h4><i class="fas fa-database"></i> SQL Server</h4>
+              <div id="db-record" class="db-record">
+                <strong>Reserva #101</strong><br />
+                Huésped: <span id="db-name">Juan Pérez</span><br />
+                Habitación: <span id="db-room">Simple</span>
+              </div>
+            </div>
+
+            <div class="flow-arrows">
+              <div id="arrow-get" class="arrow">
+                <i class="fas fa-long-arrow-alt-left"></i>
+                <span>GET (Traer)</span>
+              </div>
+              <div id="arrow-post" class="arrow">
+                <i class="fas fa-long-arrow-alt-right"></i>
+                <span>POST (Enviar)</span>
+              </div>
+            </div>
+
+            <div class="form-box">
+              <h4>
+                <i class="fas fa-window-maximize"></i> Vista (Edit.cshtml)
+              </h4>
+              <div class="mock-form">
+                <label>Huésped:</label>
+                <input
+                  type="text"
+                  id="form-name"
+                  disabled
+                  placeholder="Esperando datos..."
+                />
+                <label>Habitación:</label>
+                <select id="form-room" disabled>
+                  <option value="Simple">Simple</option>
+                  <option value="Doble">Doble</option>
+                  <option value="Suite">Suite</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="crud-actions mt-4 text-center">
+            <button id="btn-simulate-get" class="btn-primary">
+              <i class="fas fa-search"></i> 1. Simular [HttpGet] Edit
+            </button>
+            <button
+              id="btn-simulate-post"
+              class="btn-primary"
+              style="background-color: #28a745; display: none"
+            >
+              <i class="fas fa-save"></i> 2. Simular [HttpPost] Edit
+            </button>
+          </div>
+          <div id="crud-feedback" class="quiz-feedback text-center mt-3"></div>
+        </div>
+      </section>
+      <section id="fase8" class="content-section">
+        <h1>Fase 8: Proyecto Integrador (HotelAdmin)</h1>
+        <p>
+          Toda la teoría y la práctica culminan aquí. En esta sección puedes
+          explorar el código fuente <strong>COMPLETO Y REAL</strong> del sistema
+          de reservas de hotel que hemos construido a lo largo de las 8 fases.
+        </p>
+        <p>
+          Navega por las pestañas del explorador de archivos para estudiar cómo
+          se estructuran profesionalmente los Controladores, las Vistas con
+          Razor y la exportación a Excel.
+        </p>
+
+        <div class="ide-simulator mt-4">
+          <div class="ide-header">
+            <span class="dot red"></span><span class="dot yellow"></span
+            ><span class="dot green"></span>
+            <span class="ide-title">Visual Studio Code - HotelAdmin MVC</span>
+          </div>
+
+          <div class="ide-body">
+            <div class="ide-sidebar">
+              <div class="ide-folder">
+                <i class="fas fa-chevron-down"></i> Controllers
+              </div>
+              <div class="ide-file active" data-file="reservas-ctrl">
+                <i class="fab fa-cuttlefish text-info"></i>
+                ReservasController.cs
+              </div>
+              <div class="ide-file" data-file="reportes-ctrl">
+                <i class="fab fa-cuttlefish text-info"></i>
+                ReportesController.cs
+              </div>
+
+              <div class="ide-folder mt-3">
+                <i class="fas fa-chevron-down"></i> Views/Reservas
+              </div>
+              <div class="ide-file" data-file="index-cshtml">
+                <i class="fas fa-code text-warning"></i> Index.cshtml
+              </div>
+              <div class="ide-file" data-file="edit-cshtml">
+                <i class="fas fa-code text-warning"></i> Edit.cshtml
+              </div>
+            </div>
+
+            <div class="ide-content">
+              <div id="reservas-ctrl" class="code-file active">
+                <pre>
+                    <code class="language-csharp">using Microsoft.AspNetCore.Mvc;
+                    using Microsoft.AspNetCore.Mvc.Rendering;
+                    using Microsoft.EntityFrameworkCore;
+                    using HotelAdmin.Data;
+                    using HotelAdmin.Models;
+
+                    namespace HotelAdmin.Controllers
+                    {
+                        public class ReservasController : Controller
+                        {
+                            private readonly ApplicationDbContext _context;
+
+                            public ReservasController(ApplicationDbContext context)
+                            {
+                                _context = context;
+                            }
+
+                            // 1. GET: Mostrar la tabla principal
+                            [HttpGet]
+                            public async Task&lt;IActionResult&gt; Index(string searchString)
+                            {
+                                var reservasQuery = _context.Reservas.Include(r =&gt; r.Funcionario).AsQueryable();
+
+                                if (!string.IsNullOrEmpty(searchString)) {
+                                    reservasQuery = reservasQuery.Where(r =&gt; r.NombreHuesped.Contains(searchString));
+                                }
+
+                                ViewBag.Funcionarios = new SelectList(await _context.Funcionarios.ToListAsync(), "Id", "Nombre");
+                                ViewData["FiltroActual"] = searchString;
+
+                                return View(await reservasQuery.ToListAsync());
+                            }
+
+                            // 2. POST: Crear nueva reserva con LÓGICA MATEMÁTICA
+                            [HttpPost]
+                            [ValidateAntiForgeryToken]
+                            public async Task&lt;IActionResult&gt; Create(Reserva reserva)
+                            {
+                                ModelState.Remove("Funcionario");
+
+                                int dias = (reserva.CheckOut - reserva.CheckIn).Days;
+                                if (dias &lt;= 0) dias = 1;
+
+                                decimal tarifa = reserva.TipoHabitacion switch {
+                                    TipoHabitacion.Simple =&gt; 50000,
+                                    TipoHabitacion.Doble =&gt; 80000,
+                                    TipoHabitacion.Suite =&gt; 150000,
+                                    TipoHabitacion.SuiteEjecutiva =&gt; 250000,
+                                    _ =&gt; 50000 
+                                };
+
+                                reserva.PrecioTotal = tarifa * dias;
+                                reserva.Estado = EstadoReserva.Confirmada;
+
+                                if (ModelState.IsValid)
+                                {
+                                    _context.Add(reserva);
+                                    await _context.SaveChangesAsync();
+                                    TempData["MensajeExito"] = "La reserva se ha registrado correctamente.";
+                                    return RedirectToAction(nameof(Index));
+                                }
+
+                                return View("Index", await _context.Reservas.Include(r =&gt; r.Funcionario).ToListAsync());
+                            }
+
+                            // 3. POST: Eliminar reserva
+                            [HttpPost]
+                            public async Task&lt;IActionResult&gt; Delete(int id)
+                            {
+                                var reserva = await _context.Reservas.FindAsync(id);
+                                if (reserva != null) 
+                                {
+                                    _context.Reservas.Remove(reserva);
+                                    await _context.SaveChangesAsync();
+                                    TempData["MensajeError"] = "La reserva fue eliminada del sistema.";
+                                }
+                                return RedirectToAction(nameof(Index));
+                            }
+                        }
+                    }</code>
+                </pre>
+              </div>
+
+              <div id="reportes-ctrl" class="code-file">
+                <pre><code class="language-csharp">using Microsoft.AspNetCore.Mvc;
+                    using Microsoft.EntityFrameworkCore;
+                    using ClosedXML.Excel;
+                    using HotelAdmin.Data;
+
+                    namespace HotelAdmin.Controllers
+                    {
+                        public class ReportesController : Controller
+                        {
+                            private readonly ApplicationDbContext _context;
+
+                            public ReportesController(ApplicationDbContext context) { _context = context; }
+
+                            [HttpGet]
+                            public async Task&lt;IActionResult&gt; ExportarExcel()
+                            {
+                                var reservas = await _context.Reservas.Include(r =&gt; r.Funcionario).ToListAsync();
+
+                                if (reservas == null || reservas.Count == 0) {
+                                    TempData["MensajeError"] = "No hay datos para exportar.";
+                                    return RedirectToAction("Index", "Reservas"); 
+                                }
+
+                                using (var workbook = new XLWorkbook())
+                                {
+                                    var worksheet = workbook.Worksheets.Add("Reporte de Reservas");
+                                    string[] headers = { "ID Reserva", "Huésped", "Precio Total", "Vendedor" };
+                                    
+                                    for (int i = 0; i &lt; headers.Length; i++) {
+                                        var cell = worksheet.Cell(1, i + 1); 
+                                        cell.Value = headers[i];
+                                        cell.Style.Fill.BackgroundColor = XLColor.FromHtml("#1e3a5f");
+                                        cell.Style.Font.FontColor = XLColor.White;
+                                    }
+
+                                    int currentRow = 2; 
+                                    foreach (var r in reservas)
+                                    {
+                                        worksheet.Cell(currentRow, 1).Value = r.Id;
+                                        worksheet.Cell(currentRow, 2).Value = r.NombreHuesped;
+                                        worksheet.Cell(currentRow, 3).Value = r.PrecioTotal;
+                                        worksheet.Cell(currentRow, 3).Style.NumberFormat.Format = "$ #,##0";
+                                        worksheet.Cell(currentRow, 4).Value = r.Funcionario?.Nombre ?? "N/A";
+                                        currentRow++; 
+                                    }
+
+                                    worksheet.Columns().AdjustToContents();
+
+                                    using (var stream = new MemoryStream())
+                                    {
+                                        workbook.SaveAs(stream);
+                                        var content = stream.ToArray();
+                                        return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Reporte_Hotel.xlsx");
+                                    }
+                                }
+                            }
+                        }
+                    }</code>
+                </pre>
+              </div>
+
+              <div id="index-cshtml" class="code-file">
+                <pre><code class="language-html">@model IEnumerable&lt;HotelAdmin.Models.Reserva&gt;
+
+                    &lt;div class="container-fluid"&gt;
+                        &lt;h2 class="text-primary"&gt;Gestión de Reservas&lt;/h2&gt;
+
+                        &lt;!-- BUSCADOR --&gt;
+                        &lt;form asp-action="Index" method="get" class="d-flex w-50 mb-4"&gt;
+                            &lt;input type="text" name="searchString" class="form-control" value="@ViewData["FiltroActual"]" /&gt;
+                            &lt;button type="submit" class="btn btn-secondary"&gt;Buscar&lt;/button&gt;
+                        &lt;/form&gt;
+
+                        &lt;!-- TABLA DE DATOS --&gt;
+                        &lt;table class="table table-hover"&gt;
+                            &lt;thead class="table-light"&gt;
+                                &lt;tr&gt;
+                                    &lt;th&gt;Huésped&lt;/th&gt;
+                                    &lt;th&gt;Vendedor&lt;/th&gt;
+                                    &lt;th&gt;Precio Total&lt;/th&gt;
+                                    &lt;th&gt;Acciones&lt;/th&gt;
+                                &lt;/tr&gt;
+                            &lt;/thead&gt;
+                            &lt;tbody&gt;
+                                @foreach (var item in Model)
+                                {
+                                    &lt;tr&gt;
+                                        &lt;td&gt;@item.NombreHuesped&lt;/td&gt;
+                                        &lt;td&gt;@(item.Funcionario?.Nombre ?? "Sin asignar")&lt;/td&gt;
+                                        &lt;td class="text-success fw-bold"&gt;@item.PrecioTotal.ToString("C0")&lt;/td&gt;
+                                        &lt;td&gt;
+                                            &lt;a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm"&gt;Editar&lt;/a&gt;
+                                            &lt;form asp-action="Delete" asp-route-id="@item.Id" method="post" class="d-inline"&gt;
+                                                &lt;button type="submit" class="btn btn-danger btn-sm"&gt;Borrar&lt;/button&gt;
+                                            &lt;/form&gt;
+                                        &lt;/td&gt;
+                                    &lt;/tr&gt;
+                                }
+                            &lt;/tbody&gt;
+                        &lt;/table&gt;
+                    &lt;/div&gt;</code>
+                </pre>
+              </div>
+
+              <div id="edit-cshtml" class="code-file">
+                <pre><code class="language-html">@model HotelAdmin.Models.Reserva
+
+                    &lt;h2&gt;Modificar Reserva #@Model.Id&lt;/h2&gt;
+
+                    &lt;form asp-action="Edit" method="post"&gt;
+                        &lt;!-- CAMPO OCULTO (VITAL) --&gt;
+                        &lt;input type="hidden" asp-for="Id" /&gt;
+                                
+                        &lt;div class="row"&gt;
+                            &lt;div class="col-md-6"&gt;
+                                &lt;label&gt;Nombre del Huésped&lt;/label&gt;
+                                &lt;input asp-for="NombreHuesped" class="form-control" required /&gt;
+                            &lt;/div&gt;
+                                    
+                            &lt;div class="col-md-6"&gt;
+                                &lt;label&gt;Funcionario Responsable&lt;/label&gt;
+                                &lt;select asp-for="FuncionarioId" class="form-select" asp-items="ViewBag.Funcionarios" required&gt;&lt;/select&gt;
+                            &lt;/div&gt;
+
+                            &lt;div class="col-md-6"&gt;
+                                &lt;label&gt;Check-In&lt;/label&gt;
+                                &lt;input asp-for="CheckIn" type="date" class="form-control" required /&gt;
+                            &lt;/div&gt;
+
+                            &lt;div class="col-md-6"&gt;
+                                &lt;label&gt;Check-Out&lt;/label&gt;
+                                &lt;input asp-for="CheckOut" type="date" class="form-control" required /&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;button type="submit" class="btn btn-primary mt-3"&gt;Guardar Cambios&lt;/button&gt;
+                    &lt;/form&gt;
+
+                    @section Scripts {
+                        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+                    }</code>
+                </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-aspnet.min.js"></script>
+    <script src="js/project.js"></script>
+    <script src="js/crud.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/excel.js"></script>
+    <script src="js/builder.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/dragdrop.js"></script>
+    <script src="js/terminal.js"></script>
+  </body>
+</html>
