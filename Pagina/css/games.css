@@ -1,4 +1,4 @@
-/* === ESTILOS GENERALES DE JUEGOS Y SIMULADORES (DARK THEME) === */
+
 .game-container {
     background: var(--card-bg); 
     padding: 30px; 
@@ -11,7 +11,7 @@
 .game-area { display: flex; gap: 30px; margin-top: 20px; }
 .draggables-zone, .drop-zone-container { flex: 1; display: flex; flex-direction: column; gap: 10px; }
 
-/* Drag & Drop */
+
 .draggable-item {
     background-color: var(--primary-color); 
     color: var(--text-light);
@@ -39,9 +39,9 @@
 
 @keyframes shake { 0%, 100% {transform: translateX(0);} 25% {transform: translateX(-5px);} 75% {transform: translateX(5px);} }
 
-/* === SIMULADOR DE CONSOLA === */
+
 .terminal-window {
-    background-color: #0b0f19; /* Aún más oscuro que el fondo principal */
+    background-color: #0b0f19;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0,0,0,0.4);
@@ -85,12 +85,12 @@
     flex: 1; outline: none;
 }
 
-/* Colores para los mensajes de la terminal */
+
 .text-success-term { color: #4ade80; }
 .text-error-term { color: #f87171; }
 .text-warning-term { color: #fbbf24; }
 
-/* === ESTILOS DEL QUIZ INTERACTIVO === */
+
 .quiz-card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -133,7 +133,7 @@
 .quiz-feedback { margin-top: 15px; font-size: 0.9rem; font-weight: 600; display: none; }
 .mt-4 { margin-top: 25px; }
 
-/* === CONSTRUCTOR DE CÓDIGO (FASE 4) === */
+
 .code-builder-area {
     background-color: #0b0f19;
     padding: 20px;
@@ -166,7 +166,7 @@
 .btn-primary { background-color: var(--primary-color); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; transition: 0.3s; }
 .btn-primary:hover { background-color: var(--primary-hover); }
 
-/* === SIMULADOR DE EXCEL (FASE 5) === */
+
 .btn-excel { background-color: #10b981; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
 .btn-excel:hover:not(:disabled) { background-color: #059669; }
 .btn-excel:disabled { background-color: #6ee7b7; color: #064e3b; cursor: not-allowed; }
@@ -182,7 +182,7 @@
 .new-row { animation: highlightRow 1.5s ease-out forwards; }
 @keyframes highlightRow { 0% { background-color: rgba(16, 185, 129, 0.2); } 100% { background-color: transparent; } }
 
-/* === SIMULADOR DE LAYOUT (FASE 6) === */
+
 .layout-controls { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;}
 .btn-layout { background-color: #4f46e5; color: white; border: none; padding: 10px 15px; border-radius: 6px; cursor: pointer; font-weight: 600; transition: 0.3s; }
 .btn-layout:hover { background-color: #4338ca; }
@@ -207,7 +207,7 @@
 @keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
 @keyframes dropIn { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-/* === SIMULADOR CRUD (FASE 7) === */
+
 .crud-flow-area { display: flex; justify-content: space-between; align-items: center; background-color: var(--card-bg); padding: 30px; border-radius: 8px; border: 2px dashed var(--border-color); margin-top: 20px; }
 .database-box, .form-box { background-color: var(--bg-color); padding: 20px; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: 0 4px 15px rgba(0,0,0,0.3); width: 35%; color: var(--text-main); }
 .database-box h4 { color: #f87171; margin-bottom: 15px; text-align: center; border-bottom: 2px solid rgba(239, 68, 68, 0.2); padding-bottom: 10px; }

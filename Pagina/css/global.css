@@ -1,13 +1,13 @@
-/* Variables de color para un diseño Dark Dashboard moderno */
+
 :root {
-    --primary-color: #a855f7;       /* Púrpura neón vibrante */
-    --primary-hover: #9333ea;       /* Púrpura más oscuro para hovers */
-    --bg-color: #0f172a;            /* Fondo general de la página (Slate 900) */
-    --sidebar-bg: #1e293b;          /* Fondo de la barra lateral (Slate 800) */
-    --card-bg: #1e293b;             /* Fondo para bloques de contenido o tarjetas */
-    --text-main: #f8fafc;           /* Texto principal ultra claro (Slate 50) */
-    --text-muted: #94a3b8;          /* Texto secundario/atenuado (Slate 400) */
-    --border-color: #334155;        /* Bordes sutiles de separación (Slate 700) */
+    --primary-color: #a855f7;      
+    --primary-hover: #9333ea;      
+    --bg-color: #0f172a;           
+    --sidebar-bg: #1e293b;         
+    --card-bg: #1e293b;            
+    --text-main: #f8fafc;          
+    --text-muted: #94a3b8;         
+    --border-color: #334155;       
     --text-light: #ffffff;
 }
 
@@ -26,7 +26,7 @@ body {
     overflow: hidden; 
 }
 
-/* BARRA LATERAL (SIDEBAR) */
+
 .sidebar {
     width: 280px;
     background-color: var(--sidebar-bg);
@@ -51,7 +51,7 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* Animación o detalle neón en los botones */
+
 .nav-btn {
     background: none; 
     border: none; 
@@ -79,7 +79,7 @@ body {
     font-weight: 600;
 }
 
-/* ÁREA DE CONTENIDO PRINCIPAL */
+
 .main-content { 
     flex: 1; 
     padding: 50px; 
@@ -87,7 +87,7 @@ body {
     background-color: var(--bg-color);
 }
 
-/* Personalización del Scrollbar para entornos oscuros */
+
 .main-content::-webkit-scrollbar {
     width: 8px;
 }
@@ -118,7 +118,7 @@ body {
     to { opacity: 1; transform: translateY(0); } 
 }
 
-/* TIPOGRAFÍA Y ELEMENTOS DE LA GUÍA */
+
 h1 { 
     color: var(--text-light); 
     margin-bottom: 15px; 
@@ -127,7 +127,7 @@ h1 {
     letter-spacing: -0.5px;
 }
 
-/* Línea decorativa debajo del título principal */
+
 h1::after {
     content: '';
     display: block;
@@ -150,7 +150,7 @@ h3 {
     gap: 10px;
 }
 
-/* Viñeta neón antes de cada subtítulo */
+
 h3::before {
     content: '■';
     color: var(--primary-color);
@@ -181,7 +181,7 @@ strong {
     font-weight: 600;
 }
 
-/* SOPORTE PARA TARJETAS DE CÓDIGO (Para que combinen perfectamente) */
+
 .card {
     background-color: var(--card-bg) !important;
     border: 1px solid var(--border-color) !important;
@@ -190,7 +190,7 @@ strong {
 }
 
 .card-header {
-    background-color: #0b0f19 !important; /* Un tono más profundo para la barra superior del código */
+    background-color: #0b0f19 !important;
     border-bottom: 1px solid var(--border-color) !important;
 }
 
